@@ -117,6 +117,12 @@ header h1 strong {
   width: 20em;
 }
 
+#main #content textarea {
+  margin-top: .25em;
+  padding: .3em;
+  width: 27.6em;
+}
+
 #main #side {
   float: left;
   margin: 1em;

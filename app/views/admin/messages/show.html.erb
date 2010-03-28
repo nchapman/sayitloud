@@ -1,0 +1,7 @@
+<p>
+  <b>Body:</b>
+  <%=h @message.body %>
+</p>
+
+<%= link_to 'Edit', edit_admin_site_message_path(@site, @message) %> |
+<%= link_to 'Back', admin_site_messages_path(@site) %>

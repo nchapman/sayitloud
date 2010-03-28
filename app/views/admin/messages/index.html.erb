@@ -1,0 +1,20 @@
+<h1>Listing messages</h1>
+
+<p><%= link_to "&laquo; Back to sites", admin_sites_path %></p>
+
+<table>
+  <tr>
+    <th>Body</th>
+  </tr>
+
+<% @messages.each do |message| %>
+  <tr>
+    <td><%=h truncate(message.body, 100) %></td>
+    <td><%= link_to 'Show', [:admin, @site, message] %></td>
+    <td><%= link_to 'Edit', edit_admin_site_message_path(@site, message) %></td>
+    <td><%= link_to 'Destroy', [:admin, @site, message], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<p><%= link_to 'New message', new_admin_site_message_path(@site) %></p>

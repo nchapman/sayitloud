@@ -1,0 +1,9 @@
+development:
+  access_key_id: abc123
+  secret_access_key: abc123
+test:
+  access_key_id: abc123
+  secret_access_key: abc123
+production:
+  access_key_id: abc123
+  secret_access_key: abc123

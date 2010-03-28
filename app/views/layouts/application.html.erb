@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>jumpstart : <%= controller.controller_name.humanize.downcase %> : <%= controller.action_name.humanize.downcase %></title>
+    <title>sayitloud : <%= controller.controller_name.humanize.downcase %> : <%= controller.action_name.humanize.downcase %></title>
     <meta charset="utf-8" />
     <script src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.3/scriptaculous.js"></script>
@@ -15,7 +15,7 @@
   <body class="<%= controller.controller_name %>">
     <div id="container">
       <header>
-        <h1><%= link_to '<strong>jump</strong>start', admin_path %></h1>
+        <h1><%= link_to 'say<strong>it</strong>loud', admin_path %></h1>
       </header>
       <section id="main">
         <section id="content" class="yui-cssbase">
@@ -28,6 +28,8 @@
             <h3>Navigation</h3>
             <ul>
               <li><%= link_to 'Home', admin_path %></li>
+              <li><%= link_to 'Sites', admin_sites_path %></li>
+              <li><%= link_to 'Static Files', admin_static_files_path %></li>
             </ul>
             <h3>Administration</h3>
             <ul>

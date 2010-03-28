@@ -1,0 +1,21 @@
+<h1>Listing static files</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% @static_files.each do |static_file| %>
+  <tr>
+    <td><%=h static_file.name %></td>
+    <td><%= link_to static_file.file.url, static_file.file.url %></td>
+    <td><%= link_to 'Show', [:admin, static_file] %></td>
+    <td><%= link_to 'Edit', edit_admin_static_file_path(static_file) %></td>
+    <td><%= link_to 'Destroy', [:admin, static_file], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New static file', new_admin_static_file_path %>

@@ -1,6 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
+  
   map.namespace :admin do |admin|
     admin.resources :users
+    admin.resources :sites do |site|
+      site.resources :messages
+      site.resources :subdomains
+    end
+    admin.resources :static_files
   end
   
   map.resource :user_session
@@ -8,6 +14,8 @@ ActionController::Routing::Routes.draw do |map|
   map.admin '/admin/', :controller => 'admin', :action => 'index'
   map.login '/login', :controller => 'user_sessions', :action => 'new'
   map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
+  
+  map.root :controller => 'messages', :action => 'show'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

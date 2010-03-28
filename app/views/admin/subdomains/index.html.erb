@@ -1,0 +1,26 @@
+<h1>Listing subdomains</h1>
+
+<p><%= link_to "&laquo; Back to sites", admin_sites_path %></p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Today</th>
+    <th>All Time</th>
+  </tr>
+
+<% @subdomains.each do |subdomain| %>
+  <tr>
+    <td><%=h subdomain.name %></td>
+    <td><%=h subdomain.views_today %></td>
+    <td><%=h subdomain.views_all_time %></td>
+    <td><%= link_to 'Show', [:admin, @site, subdomain] %></td>
+    <td><%= link_to 'Edit', edit_admin_site_subdomain_path(@site, subdomain) %></td>
+    <td><%= link_to 'Destroy', [:admin, @site, subdomain], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New subdomain', new_admin_site_subdomain_path(@site) %>

@@ -1,0 +1,20 @@
+<h1>Editing subdomain</h1>
+
+<% form_for([:admin, @site, @subdomain]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :views %><br />
+    <%= f.text_field :views %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', [:admin, @site, @subdomain] %> |
+<%= link_to 'Back', admin_site_subdomains_path(@site) %>
