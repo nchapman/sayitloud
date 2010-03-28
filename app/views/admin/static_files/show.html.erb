@@ -2,6 +2,10 @@
   <b>Name:</b>
   <%=h @static_file.name %>
 </p>
+<p>
+  <b>URL:</b>
+  <%= link_to @static_file.file.url(nil, false), @static_file.file.url(nil, false) %>
+</p>
 
 
 <%= link_to 'Edit', edit_admin_static_file_path(@static_file) %> |

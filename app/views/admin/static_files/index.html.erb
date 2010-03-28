@@ -8,7 +8,7 @@
 <% @static_files.each do |static_file| %>
   <tr>
     <td><%=h static_file.name %></td>
-    <td><%= link_to static_file.file.url, static_file.file.url %></td>
+    <td><%= link_to static_file.file.url(nil, false), static_file.file.url(nil, false) %></td>
     <td><%= link_to 'Show', [:admin, static_file] %></td>
     <td><%= link_to 'Edit', edit_admin_static_file_path(static_file) %></td>
     <td><%= link_to 'Destroy', [:admin, static_file], :confirm => 'Are you sure?', :method => :delete %></td>
