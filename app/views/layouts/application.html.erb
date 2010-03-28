@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jumpstart : <%= controller.controller_name.humanize.downcase %> : <%= controller.action_name.humanize.downcase %></title>
+    <meta charset="utf-8" />
+    <script src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.3/scriptaculous.js"></script>
+    <script src="<%= javascript_path "application" %>"></script>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/combo?3.0.0/build/cssreset/reset-min.css&3.0.0/build/cssfonts/fonts-min.css&3.0.0/build/cssbase/base-context-min.css" />
+    <link rel="stylesheet" href="<%= stylesheet_path "scaffold" %>" />
+  </head>
+  <body class="<%= controller.controller_name %>">
+    <div id="container">
+      <header>
+        <h1><%= link_to '<strong>jump</strong>start', admin_path %></h1>
+      </header>
+      <section id="main">
+        <section id="content" class="yui-cssbase">
+        <% if flash[:notice] %><p id="flash"><%= flash[:notice] %></p><% end %>
+        <%= yield %>
+        </section>
+        <section id="side" class="yui-cssbase">
+          <% if logged_in? %>
+          <nav>
+            <h3>Navigation</h3>
+            <ul>
+              <li><%= link_to 'Home', admin_path %></li>
+            </ul>
+            <h3>Administration</h3>
+            <ul>
+              <li><%= link_to 'Users', admin_users_path %></li>
+              <li><%= link_to 'Logout', logout_path %></li>
+            </ul>
+          </nav>
+          <% end %>
+        </section>
+      </section>
+    </div>
+  </body>
+</html

@@ -1,0 +1,227 @@
+article, aside, dialog, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #424242;
+}
+
+body {
+  background: -webkit-gradient(linear, left top, left bottom, from(#222), to(#424242));
+  font-family: 'Helvetica Neue';
+}
+
+a {
+  color: #004080;
+}
+
+.quiet {
+  color: #999;
+}
+
+#container {
+  margin: 0 auto;
+  width: 960px;
+}
+
+header {
+  padding: 2em 0 1em .5em;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header h1 {
+  color: #fff;
+  font-size: 277%;
+  text-shadow: 2px 2px 4px #000;
+}
+
+header h1 strong {
+  font-weight: bold;
+}
+
+#main {
+  background-color: #eee;
+  background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
+  border: 1px solid #111;
+  color: #222;
+  overflow: auto;
+  -webkit-box-shadow: .25em .25em 1em #222;
+}
+
+#main #content {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  float: left;
+  margin: .75em 0 .75em .75em;
+  padding: 1em;
+  width: 68%;
+}
+
+#main #content #flash {
+  background-color: #feffbe;
+  border: 1px solid #ffd600;
+  color: #414233;
+  padding: .75em;
+}
+
+#main #content > h1 {
+  font-size: 138%;
+  margin-top: 0;
+}
+
+#main #content table {
+  width: 100%;
+}
+
+#main #content table th {
+  border: 0;
+  color: #626262;
+  font-size: 85%;
+  padding: .6em .4em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+#main #content table td {
+  border: 1px solid #ddd;
+  border-width: 1px 0;
+}
+
+#main #content table tr:nth-child(odd) {
+  background-color: #f7f7f7;
+}
+
+#main #content table tr:first-child {
+  background-color: #fff;
+}
+
+#main #content form p {
+  padding-bottom: .75em;
+}
+
+#main #content label {
+  color: #444;
+  font-weight: bold;
+}
+
+#main #content input[type=text], #main #content input[type=password] {
+  font-size: 138%;
+  margin-top: .25em;
+  padding: .2em;
+  width: 20em;
+}
+
+#main #side {
+  float: left;
+  margin: 1em;
+  padding: .75em 0;
+  width: 25%;
+}
+
+#main #side h3 {
+  color: #888;
+  margin: 1em 0 .5em 0;
+  padding: 0 0 .2em .4em;
+  text-transform: lowercase;
+}
+
+#main #side h3:first-child {
+  margin-top: 0;
+}
+
+#main #side nav ul {
+  margin: 0 0 0 0;
+}
+
+#main #side nav ul li {
+  list-style: none;
+}
+
+#main #side nav ul li a {
+  border-bottom: 1px solid #aaa;
+  color: #000;
+  display: block;
+  margin-bottom: .4em;
+  opacity: .5;
+  padding: 0 0 .3em .8em;
+  text-decoration: none;
+  -webkit-transition: opacity .1s ease-out;
+}
+
+#main #side nav ul li a:hover {
+  opacity: .80;
+}
+
+/* User sessions */
+
+body.user_sessions #container {
+  width: 400px;
+}
+
+body.user_sessions #main #content {
+  float: none;
+  margin-right: .75em;
+  width: auto;
+}
+
+body.user_sessions #main #content input[type=text], body.user_sessions #main #content input[type=password] {
+  width: 95%;
+}
+
+body.user_sessions #main #side {
+  display: none;
+}
+
+/* Buttons */
+
+a[href$=new], input[type=submit] {
+  background-color: #eee;
+  background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#d2d2d2));
+  border: 1px solid #bbb;
+  -webkit-border-radius: 4px;
+  color: #111;
+  cursor: default;
+  display: inline-block;
+  font-size: 92%;
+  font-weight: bold;
+  line-height: 1em;
+  padding: 7px 14px;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 #f7f7f7;
+}
+
+a[href$=new]:hover, input[type=submit]:hover {
+  background-color: #f4f4f4;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#d2d2d2));
+}
+
+a[href$=new]:active, input[type=submit]:active {
+  background: #ddd;
+  padding-top: 8px;
+  padding-bottom: 6px;
+}
+
+/* Errors */
+
+#errorExplanation {
+  margin-bottom: 2em;
+}
+
+#errorExplanation h2 {
+  font-size: 100%;
+  margin-top: 0;
+}
+
+#errorExplanation p {
+  display: none;
+}
+
+.fieldWithErrors label {
+  color: red !important;
+}

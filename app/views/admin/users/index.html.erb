@@ -1,0 +1,28 @@
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Admin</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%=h user.first_name %></td>
+    <td><%=h user.last_name %></td>
+    <td><%=h user.email %></td>
+    <td><%=h user.admin %></td>
+    <td><%= link_to 'Show', [:admin, user] %></td>
+    <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
+    <td><% unless user == current_user %><%= link_to 'Destroy', [:admin, user], :confirm => 'Are you sure?', :method => :delete %><% else %><span class="quiet">(You)</span><% end %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @users %>
+
+<br />
+
+<%= link_to 'New user', new_admin_user_path %>

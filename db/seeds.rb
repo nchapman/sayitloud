@@ -1,0 +1,1 @@
+User.create!(:first_name => "Application", :last_name => "Administrator", :email => "admin@example.com", :admin => true, :password => "admin", :password_confirmation => "admin")
