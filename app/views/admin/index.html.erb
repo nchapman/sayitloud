@@ -1,2 +1,7 @@
 <h1>Welcome</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis viverra fermentum fermentum. Phasellus semper erat sed urna tempor ultrices. Nullam sed massa in felis luctus tincidunt. Nam vel leo turpis, ac vestibulum dui. Curabitur eu urna ipsum. Fusce ut varius quam. Duis fermentum, erat sed pellentesque mattis, eros dui ullamcorper odio, nec ultricies magna nulla ut velit. Maecenas orci metus, pharetra ut egestas elementum, posuere sed mauris. Praesent vel arcu nec turpis dictum lacinia. Aenean tincidunt porta velit, vitae porta lorem consequat at. Integer imperdiet sapien eget ipsum gravida quis rutrum eros molestie. Sed risus dui, ultrices eget dictum nec, feugiat quis ipsum. Etiam sagittis risus augue, sit amet luctus nisl. In hac habitasse platea dictumst. Mauris viverra leo convallis neque blandit sit amet auctor turpis lobortis. Vestibulum sapien orci, sagittis vel blandit at, scelerisque quis orci. Aenean convallis, purus a euismod rutrum, eros tellus ornare neque, vitae ullamcorper arcu metus at dui.</p>
+<h3>Top 10 Sites Today</h3>
+<ol>
+  <% @top_subdomains_today.each do |subdomain| %>
+    <li><%= link_to "#{subdomain.name}.#{subdomain.site.domain}", "http://#{subdomain.name}.#{subdomain.site.domain}" %> <span class="quiet">(<%= subdomain.views_today %>)</span></li>
+  <% end %>
+</ol>
