@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   def show
     output = "no message for you"
     
-    if request.host =~ /((.+)\.)?(.+\..{2,3})/
+    if request.host =~ /((.+)\.)(.+\..{2,3})/
       host_subdomain = $2
       host_domain = $3
       
