@@ -1,4 +1,6 @@
 class Admin::StaticFilesController < ApplicationController
+  before_filter :require_user
+  
   # GET /static_files
   # GET /static_files.xml
   def index

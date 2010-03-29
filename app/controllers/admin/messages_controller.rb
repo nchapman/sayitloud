@@ -1,4 +1,5 @@
 class Admin::MessagesController < ApplicationController
+  before_filter :require_user
   before_filter :get_site
   
   # GET /messages
