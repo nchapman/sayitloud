@@ -7,7 +7,7 @@ class Site < ActiveRecord::Base
   validates_presence_of :name, :domain, :template
   
   def render_message(message, subdomain)
-    erubis(self.template, :message => erubis(message.body, :name => subdomain.humanize))
+    erubis(self.template, :name => subdomain.humanize, :message => erubis(message.body, :name => subdomain.humanize))
   end
   
   def erubis(template, values)
