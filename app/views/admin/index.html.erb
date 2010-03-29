@@ -1,7 +1,11 @@
 <h1>Welcome</h1>
-<h3>Top 10 Sites Today</h3>
+<h3>Today's Top Sites</h3>
+<% if @top_subdomains_today.size > 0 %>
 <ol>
   <% @top_subdomains_today.each do |subdomain| %>
     <li><%= link_to "#{subdomain.name}.#{subdomain.site.domain}", "http://#{subdomain.name}.#{subdomain.site.domain}" %> <span class="quiet">(<%= subdomain.views_today %>)</span></li>
   <% end %>
 </ol>
+<% else %>
+<p class="quiet">Sadly, we've had no visitors today.</p>
+<% end %>
