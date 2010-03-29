@@ -81,7 +81,7 @@ class Admin::SubdomainsController < ApplicationController
     @subdomain.destroy
 
     respond_to do |format|
-      format.html { redirect_to(admin_sites_subdomains_url(@site)) }
+      format.html { redirect_to(admin_site_subdomains_url(@site)) }
       format.xml  { head :ok }
     end
   end
