@@ -4,7 +4,7 @@ class Admin::SitesController < ApplicationController
   # GET /sites
   # GET /sites.xml
   def index
-    @sites = Site.all
+    @sites = Site.find(:all, :order => "name")
 
     respond_to do |format|
       format.html # index.html.erb
