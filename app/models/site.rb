@@ -13,4 +13,8 @@ class Site < ActiveRecord::Base
   def erubis(template, values)
     Erubis::Eruby.new(template).result(values)
   end
+  
+  def self.top_today
+    Site.find_by_sql("SELECT *, (SELECT SUM(views_today) FROM subdomains WHERE site_id = sites.id) AS views_today FROM sites ORDER BY views_today DESC")
+  end
 end

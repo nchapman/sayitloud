@@ -1,11 +1,26 @@
 <h1>Welcome</h1>
-<h3>Today's Top Sites</h3>
-<% if @top_subdomains_today.size > 0 %>
-<ol>
-  <% @top_subdomains_today.each do |subdomain| %>
-    <li><%= link_to "#{subdomain.name}.#{subdomain.site.domain}", "http://#{subdomain.name}.#{subdomain.site.domain}" %> <span class="quiet">(<%= subdomain.views_today %>)</span></li>
-  <% end %>
-</ol>
-<% else %>
-<p class="quiet">Sadly, we've had no visitors today.</p>
-<% end %>
+
+<div style="overflow: auto;">
+  <div style="float: left; width: 50%;">
+    <h3>Today's Top Sites</h3>
+
+    <ol>
+      <% @top_sites_today.each do |site| %>
+        <li><%= site.domain %> <span class="quiet">(<%= site.views_today.nil? ? 0 : site.views_today %>)</span></li>
+      <% end %>
+    </ol>
+  </div>
+  <div style="float: left;  width: 50%;">
+    <h3>Today's Top Subdomains</h3>
+
+    <% if @top_subdomains_today.size > 0 %>
+    <ol>
+      <% @top_subdomains_today.each do |subdomain| %>
+        <li><%= link_to "#{subdomain.name}.#{subdomain.site.domain}", "http://#{subdomain.name}.#{subdomain.site.domain}" %> <span class="quiet">(<%= subdomain.views_today %>)</span></li>
+      <% end %>
+    </ol>
+    <% else %>
+    <p class="quiet">Sadly, we've had no visitors today.</p>
+    <% end %>
+  </div>
+</div>
