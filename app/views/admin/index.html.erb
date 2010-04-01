@@ -7,7 +7,7 @@
     <% if @top_subdomains_today.size > 0 %>
     <ol>
       <% @top_subdomains_today.each do |subdomain| %>
-        <li><%= link_to "#{subdomain.name}.#{subdomain.site.domain}", "http://#{subdomain.name}.#{subdomain.site.domain}" %> <span class="quiet">(<%= subdomain.views_today %>)</span></li>
+        <li><%= link_to "#{subdomain.name}.#{subdomain.site_domain}", "http://#{subdomain.name}.#{subdomain.site_domain}" %> <span class="quiet">(<%= subdomain.views_today %>)</span></li>
       <% end %>
     </ol>
     <% else %>
@@ -22,5 +22,23 @@
         <li><%= site.domain %> <span class="quiet">(<%= site.views_today.nil? ? 0 : site.views_today %>)</span></li>
       <% end %>
     </ol>
+  </div>
+</div>
+
+<div style="overflow: auto;">
+  <div style="float: left;  width: 50%;">
+    <h3>Today's Top Referrers</h3>
+
+    <% if @top_referrers_today.size > 0 %>
+    <ol>
+      <% @top_referrers_today.each do |r| %>
+        <li><%= link_to r.referrer, "#{r.referrer}" %> <span class="quiet">(<%= r.count %>)</span></li>
+      <% end %>
+    </ol>
+    <% else %>
+    <p class="quiet">Sadly, we've had no visitors today.</p>
+    <% end %>
+  </div>
+  <div style="float: left; width: 50%;">
   </div>
 </div>

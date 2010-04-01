@@ -9,7 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100328202240) do
+ActiveRecord::Schema.define(:version => 20100401071303) do
+
+  create_table "hits", :force => true do |t|
+    t.integer  "subdomain_id"
+    t.integer  "site_id"
+    t.string   "uuid"
+    t.string   "referrer"
+    t.string   "remote_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "hits", ["created_at"], :name => "index_hits_on_created_at"
+  add_index "hits", ["site_id"], :name => "index_hits_on_site_id"
+  add_index "hits", ["subdomain_id"], :name => "index_hits_on_subdomain_id"
 
   create_table "messages", :force => true do |t|
     t.integer  "site_id"
@@ -43,8 +57,6 @@ ActiveRecord::Schema.define(:version => 20100328202240) do
   create_table "subdomains", :force => true do |t|
     t.integer  "site_id"
     t.string   "name"
-    t.integer  "views_today",    :default => 0
-    t.integer  "views_all_time", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

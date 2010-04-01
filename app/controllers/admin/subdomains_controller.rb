@@ -5,7 +5,7 @@ class Admin::SubdomainsController < ApplicationController
   # GET /subdomains
   # GET /subdomains.xml
   def index
-    @subdomains = @site.subdomains.paginate(:page => params[:page], :order => "views_all_time DESC")
+    @subdomains = @site.subdomains.paginate(:page => params[:page], :order => "name")
 
     respond_to do |format|
       format.html # index.html.erb

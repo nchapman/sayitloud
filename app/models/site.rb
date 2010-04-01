@@ -3,6 +3,7 @@ require 'erubis'
 class Site < ActiveRecord::Base
   has_many :messages
   has_many :subdomains
+  has_many :hits
   
   validates_presence_of :name, :domain, :template
   
@@ -15,6 +16,6 @@ class Site < ActiveRecord::Base
   end
   
   def self.top_today
-    Site.find_by_sql("SELECT *, (SELECT SUM(views_today) FROM subdomains WHERE site_id = sites.id) AS views_today FROM sites ORDER BY views_today DESC")
+    Site.find_by_sql("SELECT *, (SELECT COUNT(DISTINCT uuid) FROM hits WHERE site_id = sites.id) AS views_today FROM sites ORDER BY views_today DESC")
   end
 end
