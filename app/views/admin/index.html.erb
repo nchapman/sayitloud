@@ -7,7 +7,7 @@
     <% if @top_subdomains_today.size > 0 %>
     <ol>
       <% @top_subdomains_today.each do |subdomain| %>
-        <li><%= link_to "#{subdomain.name}.#{subdomain.site_domain}", "http://#{subdomain.name}.#{subdomain.site_domain}" %> <span class="quiet">(<%= subdomain.views_today %>)</span></li>
+        <li><%= link_to truncate("#{subdomain.name}.#{subdomain.site_domain}", :length => 40, "&#8230;"), "http://#{subdomain.name}.#{subdomain.site_domain}" %> <span class="quiet">(<%= subdomain.views_today %>)</span></li>
       <% end %>
     </ol>
     <% else %>

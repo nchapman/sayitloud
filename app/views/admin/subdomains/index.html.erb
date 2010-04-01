@@ -11,7 +11,7 @@
 
 <% @subdomains.each do |subdomain| %>
   <tr>
-    <td><%=h subdomain.name %></td>
+    <td><%= truncate(subdomain.name, :length => 60, "&#8230;") %></td>
     <td>?</td>
     <td>?</td>
     <td><%= link_to 'Show', [:admin, @site, subdomain] %></td>
