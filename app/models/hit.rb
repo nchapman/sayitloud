@@ -20,4 +20,14 @@ class Hit < ActiveRecord::Base
     
     return map
   end
+  
+  def self.hit_count_by_hour
+    result = self.find_by_sql("SELECT HOUR(CONVERT_TZ(created_at, '+00:00','-07:00')) AS hour, COUNT(uuid) as count FROM hits WHERE created_at > (NOW() - INTERVAL 1 DAY) GROUP BY HOUR(created_at)")
+  
+    map = {}
+    
+    result.each { |r| map[r.hour.to_i] = r.count.to_i }
+    
+    return map
+  end
 end
