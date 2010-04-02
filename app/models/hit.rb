@@ -12,6 +12,6 @@ class Hit < ActiveRecord::Base
   end
   
   def self.visitor_count_by_hour
-    self.find_by_sql("SELECT COUNT(DISTINCT uuid) as count FROM hits WHERE created_at > (NOW() - INTERVAL 1 DAY) GROUP BY HOUR(created_at)").collect { |r| r.count }
+    self.find_by_sql("SELECT COUNT(DISTINCT uuid) as count FROM hits WHERE created_at > (NOW() - INTERVAL 1 DAY) GROUP BY HOUR(created_at)").collect { |r| r.count.to_i }
   end
 end

@@ -9,6 +9,6 @@ class AdminController < ApplicationController
     @visitor_count_by_hour = Hit.visitor_count_by_hour
     @visitor_chart = Gchart.line(:size => '600x300', :theme => :keynote, :axis_with_labels => 'y',
                                   :bg => {:color => 'fff', :type => 'gradient'},
-                                  :data => [2,3])
+                                  :data => @visitor_count_by_hour)
   end
 end
