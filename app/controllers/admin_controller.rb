@@ -26,6 +26,6 @@ class AdminController < ApplicationController
     @visitor_counts.reverse!
     @hit_counts.reverse!
     
-    @visitor_chart = Gchart.line(:data => [@visitor_counts, @hit_counts], :legend => ["Visitors", "Visits"], :size => '625x250', :theme => :keynote, :axis_with_labels => 'x,y', :axis_labels => [@hours.join("|"), "0|#{@hit_counts.max}"], :bg => 'fff', :max_value => @hit_counts.max)
+    @visitor_chart = Gchart.line(:data => [@visitor_counts, @hit_counts], :legend => ["visitors", "pageviews"], :size => '625x250', :theme => :keynote, :axis_with_labels => 'x,y', :axis_labels => [@hours.join("|"), "0|#{@hit_counts.max}"], :bg => 'fff', :max_value => @hit_counts.max)
   end
 end

@@ -1,6 +1,6 @@
 <h1>Welcome</h1>
 
-<h3>Visits in the Last 24 Hours</h3>
+<h3>Activity in the Last 24 Hours</h3>
 
 <img src="<%= @visitor_chart %>" />
 
@@ -36,7 +36,7 @@
     <% if @top_referrers_today.size > 0 %>
     <ol>
       <% @top_referrers_today.each do |r| %>
-        <li><%= link_to r.referrer, "#{r.referrer}" %> <span class="quiet">(<%= r.count %>)</span></li>
+        <li><%= link_to truncate(r.referrer, :length => 40), r.referrer %> <span class="quiet">(<%= r.count %>)</span></li>
       <% end %>
     </ol>
     <% else %>
