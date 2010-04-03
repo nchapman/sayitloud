@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
         
         cookies[:uuid] = {:value => UUID.new.generate, :domain => host_domain, :expires => 1.year.from_now} unless cookies[:uuid]
         
-        Hit.create(:site => site, :subdomain => subdomain, :uuid => cookies[:uuid], :referrer => request.referrer, :remote_ip => request.remote_ip)
+        Hit.create(:site => site, :subdomain => subdomain, :uuid => cookies[:uuid], :referrer => request.referrer, :remote_ip => request.remote_ip, :user_agent => request.user_agent)
         
         if message = site.messages.random
           output = site.render_message(message, subdomain)

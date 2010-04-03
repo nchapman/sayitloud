@@ -1,6 +1,6 @@
 class Subdomain < ActiveRecord::Base
   belongs_to :site
-  has_many :hits
+  has_many :hits, :dependent => :destroy
   
   @@per_page = 25
   cattr_reader :per_page

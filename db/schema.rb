@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100401071303) do
+ActiveRecord::Schema.define(:version => 20100403083158) do
 
   create_table "hits", :force => true do |t|
     t.integer  "subdomain_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20100401071303) do
     t.string   "remote_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "user_agent"
   end
 
   add_index "hits", ["created_at"], :name => "index_hits_on_created_at"

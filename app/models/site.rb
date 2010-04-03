@@ -1,9 +1,9 @@
 require 'erubis'
 
 class Site < ActiveRecord::Base
-  has_many :messages
-  has_many :subdomains
-  has_many :hits
+  has_many :messages, :dependent => :destroy
+  has_many :subdomains, :dependent => :destroy
+  has_many :hits, :dependent => :destroy
   
   validates_presence_of :name, :domain, :template
   
