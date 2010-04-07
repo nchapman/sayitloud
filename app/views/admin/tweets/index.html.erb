@@ -1,0 +1,21 @@
+<h1>Listing tweets</h1>
+
+<p><%= link_to "&laquo; Back to sites", admin_sites_path %></p>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Body</th>
+  </tr>
+
+<% @tweets.each do |tweet| %>
+  <tr>
+    <td><img src="<%= tweet.profile_image_url %>" /></td>
+    <td><%= link_to tweet.user, "http://twitter.com/#{tweet.user}" %></td>
+    <td><div style="word-wrap: break-word; width: 350px"><%= tweet.body %></div></td>
+    <td><%= link_to 'Destroy', [:admin, @site, tweet], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @tweets %>

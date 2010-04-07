@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :sites do |site|
       site.resources :messages
       site.resources :subdomains
+      site.resources :tweets
     end
     admin.resources :static_files
   end

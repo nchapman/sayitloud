@@ -17,7 +17,7 @@ class Subdomain < ActiveRecord::Base
       SELECT
         sd.name,
         s.domain AS site_domain,
-        (SELECT COUNT(DISTINCT uuid) FROM hits WHERE subdomain_id = sd.id AND created_at > '#{today}' AND created_at < '#{tomorrow}') AS views_today
+        (SELECT COUNT(DISTINCT uuid) FROM hits WHERE subdomain_id = sd.id AND created_at > (NOW() - INTERVAL 1 DAY)) AS views_today
       FROM 
         subdomains sd INNER JOIN
           sites s ON s.id = sd.site_id
