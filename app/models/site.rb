@@ -1,5 +1,3 @@
-require 'erubis'
-
 class Site < ActiveRecord::Base
   has_many :messages, :dependent => :destroy
   has_many :subdomains, :dependent => :destroy
@@ -23,16 +21,6 @@ class Site < ActiveRecord::Base
       LIMIT 10
 eos
 ).collect { |sd| sd.fqdn }
-  end
-  
-  def render_message(message, subdomain)
-    tweets = self.tweets.find(:all, :order => "twitter_id DESC", :limit => 5)
-    subdomains = self.top_subdomains
-    erubis(self.template, :name => subdomain.humanize, :message => erubis(message.body, :name => subdomain.humanize), :subdomains => subdomains, :tweets => tweets)
-  end
-  
-  def erubis(template, values)
-    Erubis::Eruby.new(template).result(values)
   end
   
   def self.top_today

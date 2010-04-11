@@ -21,7 +21,6 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem 'authlogic'
   config.gem 'will_paginate'
-  config.gem 'erubis'
   config.gem 'paperclip'
   config.gem 'aws-s3', :lib => 'aws/s3'
   config.gem 'uuid'
