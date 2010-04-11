@@ -12,8 +12,16 @@
     <%= f.text_field :domain %>
   </p>
   <p>
-    <%= f.label :template %><br />
-    <%= f.text_area :template %>
+    <%= f.label :ga_id, "Google Analytics ID" %><br />
+    <%= f.text_field :ga_id %>
+  </p>
+  <p>
+    <%= f.label :css_url, "CSS URL (overrides)" %><br />
+    <%= f.text_field :css_url %>
+  </p>
+  <p>
+    <%= f.label :css, "CSS (additional)" %><br />
+    <%= f.text_area :css %>
   </p>
   <p>
     <%= f.submit 'Create' %>

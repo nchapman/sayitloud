@@ -1,1 +1,16 @@
-This is a test!!!
+<form id="builder">
+  <input type="text" id="subdomain" />.<%= @site.domain %> <button type="submit">Go!</button>
+</form>
+
+<script>
+Event.observe("builder", "submit", function(e) {
+  var subdomain = $F("subdomain").toLowerCase().replace(/\s+/g, ".").replace(/[^a-z\.\_]/g, "");
+  
+  if (subdomain != "") 
+    window.location = "http://" + subdomain + ".<%= @site.domain %>";
+  else
+    alert("You have to put in a name first.")
+    
+  Event.stop(e);
+});
+</script>

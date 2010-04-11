@@ -1,23 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= @title %></title>
+    <title><%= "#{@name}, " if defined? @name %><%= @site.name %></title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=500, user-scalable=yes">
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js"></script>
     <link rel="stylesheet" href="http://yui.yahooapis.com/combo?3.0.0/build/cssreset/reset-min.css&3.0.0/build/cssfonts/fonts-min.css&3.0.0/build/cssbase/base-context-min.css" />
+    
+    <% if @site.css_url && !@site.css_url.strip.empty? %>
+    <link rel="stylesheet" href="<%= @site.css_url %>" />
+    <% else %>
     <link rel="stylesheet" href="<%= stylesheet_path "messages" %>" />
+    <% end %>
+    
+    <% if @site.css && !@site.css.strip.empty? -%>
+    <style>
+    <%= @site.css %>
+    </style>
+    <% end %>
+    
+    <% if @site.ga_id && !@site.ga_id.strip.empty? %>
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', '<%= @site.ga_id %>']);
+      _gaq.push(['_setDomainName', '.<%= @site.domain %>'])
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <% end %>
+    
   </head>
   <body>
     <div id="container">
       <header>
-        <h1><%= @title %></h1>
+        <h1><%= "#{@name}, " if defined? @name %><%= @site.name %></h1>
       </header>
-      <section class="yui-cssbase">
+      <section id="main" class="yui-cssbase">
         <%= yield %>
       </section>
+      <footer>
+        footer stuff will go here.
+      </footer>
     </div>
   </body>
 </html>

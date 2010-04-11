@@ -5,7 +5,6 @@
     <th>Name</th>
     <th>Domain</th>
     <th>Messages</th>
-    <th>Subdomains</th>
     <th>Tweets</th>
   </tr>
 
@@ -14,7 +13,6 @@
     <td><%=h site.name %></td>
     <td><%=h site.domain %></td>
     <td><%= link_to 'Messages', admin_site_messages_path(site) %></td>
-    <td><%= link_to 'Subdomains', admin_site_subdomains_path(site) %></td>
     <td><%= link_to 'Tweets', admin_site_tweets_path(site) %></td>
     <td><%= link_to 'Edit', edit_admin_site_path(site) %></td>
     <td><%= link_to 'Destroy', [:admin, site], :confirm => 'Are you sure?', :method => :delete %></td>

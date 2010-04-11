@@ -12,7 +12,6 @@
 ActiveRecord::Schema.define(:version => 20100406235836) do
 
   create_table "hits", :force => true do |t|
-    t.integer  "subdomain_id"
     t.integer  "site_id"
     t.string   "uuid"
     t.string   "referrer"
@@ -20,11 +19,13 @@ ActiveRecord::Schema.define(:version => 20100406235836) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_agent"
+    t.string   "url"
+    t.string   "host"
   end
 
   add_index "hits", ["created_at"], :name => "index_hits_on_created_at"
+  add_index "hits", ["host"], :name => "index_hits_on_host"
   add_index "hits", ["site_id"], :name => "index_hits_on_site_id"
-  add_index "hits", ["subdomain_id"], :name => "index_hits_on_subdomain_id"
 
   create_table "messages", :force => true do |t|
     t.integer  "site_id"
@@ -38,7 +39,9 @@ ActiveRecord::Schema.define(:version => 20100406235836) do
   create_table "sites", :force => true do |t|
     t.string   "name"
     t.string   "domain"
-    t.text     "template"
+    t.string   "css_url"
+    t.string   "ga_id"
+    t.text     "css"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,15 +58,6 @@ ActiveRecord::Schema.define(:version => 20100406235836) do
     t.datetime "updated_at"
   end
 
-  create_table "subdomains", :force => true do |t|
-    t.integer  "site_id"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "subdomains", ["site_id"], :name => "index_subdomains_on_site_id"
-
   create_table "tweets", :force => true do |t|
     t.integer  "site_id"
     t.integer  "twitter_id"
@@ -74,6 +68,9 @@ ActiveRecord::Schema.define(:version => 20100406235836) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "tweets", ["site_id"], :name => "index_tweets_on_site_id"
+  add_index "tweets", ["twitter_id"], :name => "index_tweets_on_twitter_id"
 
   create_table "users", :force => true do |t|
     t.string   "first_name",                             :null => false

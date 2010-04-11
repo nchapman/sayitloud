@@ -12,6 +12,8 @@ class MessagesController < ApplicationController
         @site = Site.find_by_domain(host_domain)
       
         if @site
+          record_hit(@site)
+          
           if host_subdomain
             @name = get_name(host_subdomain)
             @message = @site.messages.random
@@ -37,6 +39,6 @@ class MessagesController < ApplicationController
     def record_hit(site)
       cookies[:uuid] = {:value => UUID.new.generate, :domain => site.domain, :expires => 1.year.from_now} unless cookies[:uuid]
         
-      Hit.create(:site => site, :uuid => cookies[:uuid], :referrer => request.referrer, :remote_ip => request.remote_ip, :user_agent => request.user_agent)
+      Hit.create(:site => site, :host => request.host, :url => request.url, :uuid => cookies[:uuid], :referrer => request.referrer, :remote_ip => request.remote_ip, :user_agent => request.user_agent)
     end
 end

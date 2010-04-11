@@ -12,17 +12,6 @@ class Admin::SitesController < ApplicationController
     end
   end
 
-  # GET /sites/1
-  # GET /sites/1.xml
-  def show
-    @site = Site.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @site }
-    end
-  end
-
   # GET /sites/new
   # GET /sites/new.xml
   def new
@@ -47,7 +36,7 @@ class Admin::SitesController < ApplicationController
     respond_to do |format|
       if @site.save
         flash[:notice] = 'Site was successfully created.'
-        format.html { redirect_to([:admin, @site]) }
+        format.html { redirect_to(admin_sites_url) }
         format.xml  { render :xml => @site, :status => :created, :location => @site }
       else
         format.html { render :action => "new" }
@@ -64,7 +53,7 @@ class Admin::SitesController < ApplicationController
     respond_to do |format|
       if @site.update_attributes(params[:site])
         flash[:notice] = 'Site was successfully updated.'
-        format.html { redirect_to([:admin, @site]) }
+        format.html { redirect_to(admin_sites_url) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
