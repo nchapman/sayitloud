@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(:version => 20100406235836) do
 
   create_table "tweets", :force => true do |t|
     t.integer  "site_id"
-    t.integer  "twitter_id"
+    t.string   "twitter_id"
     t.string   "user"
     t.string   "profile_image_url"
     t.string   "body"
