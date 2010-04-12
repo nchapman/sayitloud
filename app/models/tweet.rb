@@ -1,6 +1,6 @@
 class Tweet < ActiveRecord::Base
   belongs_to :site
-  validates_uniqueness_of :twitter_id, :on => :create
+  validates_uniqueness_of :twitter_id
   
   def self.update_from_twitter
     Site.all.each do |site|
