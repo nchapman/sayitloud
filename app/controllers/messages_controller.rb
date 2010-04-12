@@ -20,6 +20,7 @@ class MessagesController < ApplicationController
           if host_subdomain
             @name = get_name(host_subdomain)
             @message = @site.messages.random
+            @tweet_this_url = "http://twitter.com/?status=" << CGI::escape("http://#{request.host}/")
             
             format.html
           else

@@ -44,6 +44,28 @@ h1 {
   margin: -2.2em auto 5em auto;
 }
 
+#links {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#links li {
+  background-color: #222;
+  display: block;
+  float: left;
+  margin-left: .25em;
+  -webkit-border-radius: .4em;
+}
+
+#links a {
+  color: #fff;
+  display: block;
+  font-weight: bold;
+  padding: .4em .5em;
+  text-decoration: none;
+}
+
 footer {
   color: #282828;
   margin: 0 auto;
