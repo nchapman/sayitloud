@@ -45,9 +45,15 @@ h1 {
 }
 
 #links {
+  font-size: 92%;
+  padding: .5em;
   position: absolute;
   right: 0;
   top: 0;
+}
+
+#links ul {
+  overflow: auto;
 }
 
 #links li {
@@ -62,7 +68,7 @@ h1 {
   color: #fff;
   display: block;
   font-weight: bold;
-  padding: .4em .5em;
+  padding: .5em .75em;
   text-decoration: none;
 }
 
@@ -70,6 +76,7 @@ footer {
   color: #282828;
   margin: 0 auto;
   overflow: auto;
+  padding-bottom: 1em;
   width: 500px;
 }
 
