@@ -9,7 +9,7 @@ class Tweet < ActiveRecord::Base
       search.since(last_tweet.twitter_id) if last_tweet
       
       search.each do |r|
-        unless Tweet.find_by_twitter_id(r[id])
+        unless Tweet.find_by_twitter_id(r["id"])
           site.tweets.create(
             :twitter_id => r["id"],
             :user => r["from_user"],
