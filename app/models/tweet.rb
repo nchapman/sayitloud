@@ -14,7 +14,7 @@ class Tweet < ActiveRecord::Base
             :twitter_id => r["id"],
             :user => r["from_user"],
             :profile_image_url => r["profile_image_url"],
-            :body => CGI.escapeHTML(r["text"]),
+            :body => r["text"],
             :originally_created_at => r["created_at"]
           )
         end

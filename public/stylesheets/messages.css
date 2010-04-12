@@ -43,3 +43,35 @@ h1 {
   display: block;
   margin: -2.2em auto 5em auto;
 }
+
+footer {
+  color: #282828;
+  margin: 0 auto;
+  overflow: auto;
+  width: 500px;
+}
+
+footer a {
+  color: #282828;
+}
+
+footer h2 {
+  color: #555;
+  font-weight: bold;
+  margin-bottom: .4em;
+}
+
+footer li {
+  margin-bottom: .25em;
+}
+
+#tweets, #hits {
+  float: left;
+  margin-right: 2em;
+  width: 17em;
+}
+
+#tweets a.user {
+  font-weight: bold;
+}
+

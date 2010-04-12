@@ -14,10 +14,13 @@ class MessagesController < ApplicationController
         if @site
           record_hit(@site)
           
+          @tweets = @site.top_tweets
+          @hits = @site.top_hits
+          
           if host_subdomain
             @name = get_name(host_subdomain)
             @message = @site.messages.random
-          
+            
             format.html
           else
             format.html { render :action => "index" }

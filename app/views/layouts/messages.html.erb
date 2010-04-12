@@ -47,7 +47,24 @@
         <%= yield %>
       </section>
       <footer>
-        footer stuff will go here.
+        <div class="hook">
+          <div id="tweets">
+            <h2>Recently on Twitter</h2>
+            <ul>
+            <% @tweets.each do |tweet| %>
+              <li><a class="user" href="<%= tweet.url %>"><%= tweet.user %></a>: <%= enable_twitter_links h tweet.body %></li>
+            <% end %>
+            </ul>
+          </div>
+          <div id="hits">
+            <h2>Recently Popular</h2>
+            <ul>
+            <% @hits.each do |hit| %>
+              <li><a href="http://<%= hit.host %>"><%= hit.host %></a></li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
       </footer>
     </div>
   </body>
