@@ -8,10 +8,10 @@
 
 <script>
 Event.observe("builder", "submit", function(e) {
-  var subdomain = $F("subdomain").toLowerCase().replace(/\s+/g, ".").replace(/[^a-z\.\_]/g, "").replace(/\.{2,}/, ".");
+  var subdomain = $F("subdomain").toLowerCase().replace(/\s+/g, ".").replace(/[^a-z\.\_]/g, "");
   
   if (subdomain != "") 
-    window.location = "http://" + subdomain + ".<%= @site.domain %>";
+    window.location = ("http://" + subdomain + ".<%= @site.domain %>").replace(/\.{2,}/, ".");
   else
     alert("You have to put in a name first.")
     
