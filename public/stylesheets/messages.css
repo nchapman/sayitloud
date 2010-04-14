@@ -17,7 +17,7 @@ h1 {
   text-indent: -1000em;
 }
 
-#message {
+#message, #builder {
   color: #222;
   font-family: Georgia;
   font-size: 300%;
@@ -36,8 +36,21 @@ h1 {
   text-shadow: 1px 2px 0 rgba(250, 250, 250, 1);
 }
 
+#builder {
+  width: 9em;
+}
+
+#builder input {
+  font-family: Georgia;
+  width: 100%;
+}
+
+#builder button {
+  display: none;
+}
+
 #extra {
-  background-image: url(/images/little-dude.png);
+  background-image: url(http://getthefuckoff.me/images/little-dude.png);
   width: 220px;
   height: 225px;
   display: block;
@@ -74,34 +87,54 @@ h1 {
 }
 
 footer {
-  color: #282828;
+  color: #3a3a3a;
   margin: 0 auto;
   overflow: auto;
   padding-bottom: 1em;
-  width: 500px;
+  width: 440px;
 }
 
 footer a {
-  color: #282828;
+  color: #3a3a3a;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
 
 footer h2 {
-  color: #555;
+  color: #777;
+  font-size: 108%;
   font-weight: bold;
-  margin-bottom: .4em;
+  margin-bottom: .5em;
 }
 
 footer li {
   margin-bottom: .25em;
+  overflow: auto;
 }
 
 #tweets, #hits {
   float: left;
-  margin-right: 2em;
-  width: 17em;
+  width: 50%;
 }
 
-#tweets a.user {
+#tweets h3 {
+  font-size: 108%;
   font-weight: bold;
+  margin-bottom: .25em;
+}
+
+#tweets img {
+  border: 1px solid #000;
+  float: left;
+  margin: 0 .5em .25em 0;
+  width: 31px;
+}
+
+#tweets .more {
+  font-weight: bold;
+  margin-top: .5em;
 }
 

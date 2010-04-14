@@ -1,6 +1,7 @@
 <div id="builder">
   <form>
-    <input type="text" id="subdomain" />.<%= @site.domain %> <button type="submit">Go!</button>
+    <div><input type="text" id="subdomain" placeholder="Name" /> <%= @site.name.downcase %>.</div>
+    <div><button type="submit">Go</button></div>
   </form>
 </div>
 <div id="extra"></div>

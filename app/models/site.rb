@@ -6,7 +6,7 @@ class Site < ActiveRecord::Base
   validates_presence_of :name, :domain
   
   def top_tweets
-    self.tweets.find(:all, :order => "twitter_id DESC", :limit => 5)
+    self.tweets.find(:all, :order => "twitter_id DESC", :limit => 1)
   end
   
   def top_hits
