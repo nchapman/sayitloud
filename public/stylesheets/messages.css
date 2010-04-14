@@ -61,6 +61,7 @@ h1 {
   display: block;
   float: left;
   margin-left: .25em;
+  -moz-border-radius: .4em;
   -webkit-border-radius: .4em;
 }
 

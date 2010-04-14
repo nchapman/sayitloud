@@ -1,6 +1,9 @@
-<form id="builder">
-  <input type="text" id="subdomain" />.<%= @site.domain %> <button type="submit">Go!</button>
-</form>
+<div id="builder">
+  <form>
+    <input type="text" id="subdomain" />.<%= @site.domain %> <button type="submit">Go!</button>
+  </form>
+</div>
+<div id="extra"></div>
 
 <script>
 Event.observe("builder", "submit", function(e) {
