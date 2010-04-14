@@ -8,7 +8,7 @@
 
 <script>
 Event.observe("builder", "submit", function(e) {
-  var subdomain = $F("subdomain").toLowerCase().replace(/\s+/g, ".").replace(/[^a-z\.\_]/g, "");
+  var subdomain = $F("subdomain").toLowerCase().replace(/\s+/g, ".").replace(/[^a-z\.\_]/g, "").replace(/\.{2,}/, ".");
   
   if (subdomain != "") 
     window.location = "http://" + subdomain + ".<%= @site.domain %>";
