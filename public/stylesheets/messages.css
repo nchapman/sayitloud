@@ -91,7 +91,7 @@ footer {
   margin: 0 auto;
   overflow: auto;
   padding-bottom: 1em;
-  width: 440px;
+  width: 450px;
 }
 
 footer a {
@@ -116,8 +116,15 @@ footer li {
 }
 
 #tweets, #hits {
+  width: 48%;
+}
+
+#hits {
+  float: right;
+}
+
+#tweets {
   float: left;
-  width: 50%;
 }
 
 #tweets h3 {
@@ -137,4 +144,3 @@ footer li {
   font-weight: bold;
   margin-top: .5em;
 }
-
